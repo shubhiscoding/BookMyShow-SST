@@ -18,6 +18,10 @@
 }
 .text-center{
   text-align: center;
+  transition: all 0.1s ease-in;
+}
+.text-center:hover{
+  scale: 1.05;
 }
 .cursor-pointer{
   cursor: pointer;

@@ -17,7 +17,6 @@ router.post('/add-theatre',  async (req, res) => {
     }
 });
 
-// Get all theatres for Admin route
 router.get('/get-all-theatres', async (req, res) => {
     try{
         const allTheatres = await Theatre.find().populate('owner');
@@ -34,7 +33,6 @@ router.get('/get-all-theatres', async (req, res) => {
     }
 });
 
-// Get the theatres of a specific owner
 router.post('/get-all-theatres-by-owner',  async (req, res) => {
     try{
         const allTheatres = await Theatre.find({owner: req.body.owner});
@@ -52,7 +50,6 @@ router.post('/get-all-theatres-by-owner',  async (req, res) => {
 });
 
 
-// Update theatre
 router.put('/update-theatre',  async (req, res) => {
     try{
         await Theatre.findByIdAndUpdate(req.body.theatreId, req.body);

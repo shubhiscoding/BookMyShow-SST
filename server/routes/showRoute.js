@@ -2,7 +2,6 @@ const router = require('express').Router();
 
 const Show = require('../models/showModel');
 
-// Add Show
 router.post('/add-show',  async (req, res) => {
     try{
         const newShow = new Show(req.body);
@@ -11,7 +10,7 @@ router.post('/add-show',  async (req, res) => {
             success: true,
             message: 'New show has been added!'
         });
-        // console.log(req.body, res.success, res.message);
+        console.log(req.body, res.success, res.message);
     }catch(err){
         res.send({
             status: false,
@@ -28,7 +27,7 @@ router.post('/get-all-shows-by-theatre',  async (req, res) => {
             message: "All shows fetched",
             data: shows
         });
-        // console.log(req.body, res.data, shows)
+        console.log(req.body, res.data, shows)
     }catch(err){
         res.send({
             success: false,
@@ -53,7 +52,6 @@ router.post('/delete-show', async (req, res) => {
     }
 })
 
-// Update mshow
 router.put("/update-show",  async (req, res) => {
     try{
         await Show.findByIdAndUpdate(req.body.showId, req.body);
@@ -69,7 +67,6 @@ router.put("/update-show",  async (req, res) => {
     }
 })
 
-// Get all theatres by movie which has some shows
 router.post("/get-all-theatres-by-movie", async (req, res) => {
     try{
         const {movie, date} = req.body;
